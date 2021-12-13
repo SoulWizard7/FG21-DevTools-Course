@@ -276,7 +276,11 @@ PrefabInstance:
     - target: {fileID: 2970632031999273633, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
       propertyPath: _onhealthChangedEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 4d29dc1440a455e459a446b1856cf0a8, type: 2}
+      objectReference: {fileID: 11400000, guid: d6831db9a70e8a84e9345e7227f43aab, type: 2}
+    - target: {fileID: 2970632031999273633, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
+      propertyPath: _healthRef._intVariable
+      value: 
+      objectReference: {fileID: 11400000, guid: ec30bf1f9babfbc448c540a30af0667f, type: 2}
     - target: {fileID: 2970632031999273636, guid: ab39a3d0044af1d46b46c0ccbc24f3dd, type: 3}
       propertyPath: m_Icon
       value: 
@@ -374,6 +378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7101966234704262267, guid: c71243f12cdfc2a4282f1805a6098327, type: 3}
+      propertyPath: _response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 7101966235372498888, guid: c71243f12cdfc2a4282f1805a6098327, type: 3}
       propertyPath: m_Name
       value: UI

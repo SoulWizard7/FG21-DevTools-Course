@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be082e344dbcaa40b8c36fa64d1b7f0, type: 3}
   m_Name: throttle
   m_EditorClassIdentifier: 
-  _value: 3.57
+  _value: 6.29

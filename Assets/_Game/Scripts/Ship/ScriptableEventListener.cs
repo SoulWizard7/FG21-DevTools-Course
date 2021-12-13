@@ -1,18 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class ScriptableEventListener : MonoBehaviour
 {
-    [SerializeField] private ScriptableEvents _event;
-    [SerializeField] private UnityEvent _response;
+    [SerializeField] private ScriptableEvent _eventNoPayload;
+    [SerializeField] private UnityEvent _responseNoPayload;
 
     private void OnEventRaised()
     {
-        _response.Invoke();
+        _responseNoPayload.Invoke();
     }
+    private void OnEnable()
+    {
+        _eventNoPayload.Register(OnEventRaised);
+    }
+    private void OnDisable()
+    {
+        _eventNoPayload.Unregister(OnEventRaised);
+    }
+}
 
+public abstract class ScriptableEventListener<TPayload, TEvent, TUnityEventResponse> : ScriptableEventListener
+    where TEvent : ScriptableEvent<TPayload>
+    where TUnityEventResponse : UnityEvent<TPayload>
+{
+    [SerializeField] private TEvent _event;
+    [SerializeField] private TUnityEventResponse _response;
+
+    private void OnEventRaised(TPayload payload)
+    {
+        _response.Invoke(payload);
+    }
     private void OnEnable()
     {
         _event.Register(OnEventRaised);
@@ -21,4 +43,5 @@ public class ScriptableEventListener : MonoBehaviour
     {
         _event.Unregister(OnEventRaised);
     }
+    
 }

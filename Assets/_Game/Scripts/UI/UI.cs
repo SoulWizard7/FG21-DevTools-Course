@@ -8,6 +8,7 @@ namespace UI
         [Header("Health:")]
         [SerializeField] private IntVariable _healthVar;
         [SerializeField] private TextMeshProUGUI _healthText;
+        
         [Header("Score:")]
         [SerializeField] private TextMeshProUGUI _scoreText;
         [Header("Timer:")]
@@ -20,9 +21,9 @@ namespace UI
             SetHealthText($"Health: {_healthVar.Value}");
         }
 
-        public void OnHealthChanged()
+        public void OnHealthChanged(int newValue)
         {
-            SetHealthText($"Health: {_healthVar.Value}");
+            SetHealthText($"Health: {newValue}");
             Debug.Log("OnHealthChanged");
         }
 

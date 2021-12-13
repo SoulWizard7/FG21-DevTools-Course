@@ -1,3 +1,4 @@
+using ScriptableEvents;
 using UnityEngine;
 
 namespace Ship
@@ -6,14 +7,14 @@ namespace Ship
     {
         [SerializeField] private IntVariable _health;
         [SerializeField] private IntReference _healthRef;
-        [SerializeField] private ScriptableEvents _onhealthChangedEvent;
+        [SerializeField] private ScriptableEventInt _onhealthChangedEvent;
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (string.Equals(other.gameObject.tag, "Asteroid"))
             {
-                _health.ApplyChange(-1);
-                _onhealthChangedEvent.Raise();
+                _healthRef.ApplyChange(-1);
+                _onhealthChangedEvent.Raise(_health.Value);
             }
         }
     }
